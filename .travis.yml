@@ -9,9 +9,9 @@ script:
   - docker run kevincepria/react-test npm run test -- --coverage
 
 after_success:
-  - docker build -t kevincepria/multi-client ./client \
+  - docker build -t kevincepria/multi-client ./client
   - docker build -t kevincepria/multi-nginx ./nginx
-  - docker build -t kevincepria/multi-sever ./sever  
+  - docker build -t kevincepria/multi-server ./sever  
   - docker build -t kevincepria/multi-worker ./worker 
   #Login in to the Docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
